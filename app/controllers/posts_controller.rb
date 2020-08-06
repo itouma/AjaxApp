@@ -5,7 +5,9 @@ class PostsController < ApplicationController
 
   def create  
     post = Post.create(content: params[:content], checked: false)
+    # エンドポイントを呼ぶとレスポンスとしてデータ(JSON)が返却されるように実装しましょう。既読や未読の情報を追加したため『メモ作成時に未読の情報を保存するようにしたこと』
     render json:{ post:post }
+    # Ajaxを実現するため『レスポンスをJSONに変更したこと』
     # Post.create(content: params[:content])
     # redirect_to action: :index
   end
